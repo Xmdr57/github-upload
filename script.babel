@@ -1,0 +1,34 @@
+$(function () {
+  ///se busca en todas las opciones del select
+  $("select option").each(function () {
+    //si hay alguna opcion cuyo valor sea igual al de las opciones, se elimina
+    console.log(this.value);
+    $(this)
+      .siblings("[value=" + this.value + "]")
+      .remove();
+  });
+  var $opcionesprimerselect = $("#select-elements > option").clone();
+  $("#options").append($opcionesprimerselect);
+  var $impar = $("#select-elements > option:odd").clone();
+  var $par = $("#select-elements > option:even").clone();
+  $("form :input").val("este select está en el form");
+  $("#solopares").append($par);
+  $("#soloimpares").append($impar);
+  $(".primerdiv,.segundodiv").each(function (index) {
+    $("#copiadivs").html(
+      $("#copiadivs").html() + index + " <br /> " + $(this).text()
+    );
+  });
+  $(":input:contains('está')");
+  $(".colores").append($(".color"));
+  var contapulsos = 0;
+  $("#bloquea").on("click", function () {
+    $("#bloquea").prop("disabled", true);
+    $("#contapulsacion").text(contapulsos);
+  });
+
+  contapulsos++;
+  $("#copia").mouseenter(function () {
+    $(this).css("cursor", "pointer");
+  });
+});
